@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .box{
+            width: 300px;
+            /* width: fit-content; */
+            padding: 20px 30px;
+            box-shadow: 1px 1px 2px 3px #929090;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            align-items: start;
+        }
+        input[type='text'],textarea{
+            width: 100%;
+        }
+        
+        .showTask{
+            height: 300px;
+            width: 300px;
+            border: 2px solid palegreen;
+        }
+        .cards{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .card{
+            width: 250px;
+            padding: 20px 25px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 2px 2px grey; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input id="inp" type="text" placeholder="Enter Your Task">
+        <textarea  id="detail"></textarea>
+        <input id="dt" type="date">
+        <div style="width: 100%; text-align: center; ">
+            <button id="btn">Add</button>
+            <button id="bt">update</button>
+        </div>
+    </div>
+
+    <div class="cards">
+
+    </div>
+</body>
+<script src="s.js"></script>
+</html>

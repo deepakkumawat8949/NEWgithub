@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.todo-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+#new-todo {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>My TODO List</h1>
+        <input type="text" id="new-todo" placeholder="Add a new task">
+        <button id="add-todo">Add</button>
+        <ul id="todo-list"></ul>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+<script>
+    document.getElementById('add-todo').addEventListener('click', function() {
+    var newTodoText = document.getElementById('new-todo').value;
+    if (newTodoText === '') return;
+
+    var todoList = document.getElementById('todo-list');
+
+    var newTodoItem = document.createElement('li');
+
+    var todoText = document.createElement('span');
+    todoText.textContent = newTodoText;
+
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('delete-btn');
+    deleteButton.addEventListener('click', function() {
+        todoList.removeChild(newTodoItem);
+    });
+
+    newTodoItem.appendChild(todoText);
+    newTodoItem.appendChild(deleteButton);
+
+    newTodoItem.addEventListener('click', function() {
+        newTodoItem.classList.toggle('completed');
+    });
+
+    todoList.appendChild(newTodoItem);
+
+    document.getElementById('new-todo').value = '';
+});
+
+</script>
+</html>

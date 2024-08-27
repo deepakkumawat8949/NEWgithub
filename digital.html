@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pos{
+            background-color: rgb(176, 176, 243);
+            font-size: 50px;
+            width: 100px;
+            
+        }  
+        #neg{
+            background-color: rgb(226, 199, 199);
+            font-size: 50px;
+            width: 100px;
+        }
+        .main{
+            margin: auto;
+            /* background-color: black; */
+            margin-top: 200px;
+            margin-left: 500px;
+        }h1{
+font-size: 100px;
+        }
+
+    </style>
+</head>
+
+<body 
+style="background-color: rgb(231, 140, 140);">
+    <div class="main">
+    <h1 ></h1>
+
+    <button id="pos">+</button>
+    <button id="neg">-</button>
+</div>
+</body>
+<script>
+
+
+    let print = document.querySelector('h1')
+    let count = 0
+    print.innerHTML = `${count}`
+
+
+    let btn1 = document.querySelector('#pos')
+    let btn2 = document.querySelector('#neg')
+    console.log(btn1, btn2)
+
+    btn1.addEventListener('click', ()=>{
+        if (count<10) {
+            count++
+            
+        }
+        print.innerHTML = `${count}`
+    })
+    btn2.addEventListener('click', ()=>{
+        if (count>-10) {
+            count--
+            
+        }
+        print.innerHTML = `${count}`
+    })
+
+
+</script>
+
+</html>

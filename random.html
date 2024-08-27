@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <center>
+      <input type="text" id="showpassword" readonly>
+      <br>
+      <input id="rang" type="range" value="4" min="4" max="16">
+      <label for="chr">Include Char</label>
+      <input type="checkbox" id="chr">
+      <br>
+      <button onclick="copyPassword()">Copy</button>
+   </center>
+
+</body>
+<script>
+   let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
+   let rng = document.querySelector('#rang')
+   let chr = document.querySelector("#chr")
+   function genratePassword(params) {
+      let password = ''
+  
+         for (let i = 0; i < rng.value; i++) {
+            let passnum = Math.floor(Math.random() * str.length)
+
+            password += str.charAt(passnum)
+         }
+
+  
+
+      document.querySelector('#showpassword').value = password
+
+   }
+   genratePassword()
+   rng.addEventListener('input', () => {
+
+      genratePassword()
+
+   })
+   let asume = true
+   chr.addEventListener('click', () => {
+      if (asume) {
+         str += '0123456789'
+         genratePassword()
+         asume = false
+      } else {
+
+         str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+         genratePassword()
+         asume = true
+
+      }
+   })
+   function copyPassword() {
+      window.navigator.clipboard.writeText(document.querySelector('#showpassword').value)
+      alert('Password is copid')
+   }
+
+
+
+
+</script>
+
+</html>

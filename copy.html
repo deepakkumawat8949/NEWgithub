@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cards{
+            display: flex;
+        }
+        .box{
+            width: fit-content;
+            padding: 10px 20px;
+            box-shadow: 2px 2px 3px 3px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h"></h1>
+    <div class="cards">
+
+    </div>
+</body>
+<script>
+    let print = document.querySelector('#h')
+    let arr = [10, 20, 40, 80, 120, 170, 150]
+    let ele = ''
+    arr.forEach((e) => {
+        ele += `
+       <p>${e}</p>
+       `
+        print.innerHTML = ele
+    })
+
+
+    let arrobj = [
+        {
+            name: 'Ram',
+            mob: 21723562,
+            email: 'SiyaRAM@123',
+            password: 'ad2781easd23'
+        },
+        {
+            name: 'Shiv',
+            mob: 2172356223,
+            email: 'Shiv@123',
+            password: 'ad2781easd23'
+        }
+        ,
+        {
+            name: 'Hanuman',
+            mob: 2172352342,
+            email: 'jaiSiyaRAM@123',
+            password: '12ad2781easd23'
+        }
+    ]
+    let ele2 = ''
+    arrobj.forEach((e) => {
+        // console.log(e.name)
+        ele2 += `
+        <div class="box">
+            <h1>${e.name}</h1>
+            <p>${e.mob}</p>
+            <p>${e.email}</p>
+            <p>${e.password}</p>
+         </div>
+   `
+        // console.log(ele2)
+        document.querySelector('.cards').innerHTML = ele2
+    })
+</script>
+
+</html>
